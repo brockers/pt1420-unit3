@@ -13,9 +13,12 @@ function changeDisplay(){
 	// Only place we actually change the screen
 	list.innerHTML = "";
 	for(var i=0; i<toDoList.length; i++){
-		list.innerHTML += '<div class="item">' + toDoList[i] +
-		' (<a href="#" onclick="javascript:removeToDo(' + i +')">X</a>)' +
-		'</div>';
+		list.innerHTML += '<li class="list-group-item">' + toDoList[i] +
+		'<div class="btn-group-xs pull-right">' +
+		'<button class="btn btn-warning delete" onclick="javascript:removeToDo(' + i +')">' +
+		'Delete</button>' +
+		'</div>' +
+		'</li>';
 	}
 	localStorage.todolist = JSON.stringify(toDoList);
 }
